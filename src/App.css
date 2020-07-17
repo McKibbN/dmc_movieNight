@@ -1,0 +1,506 @@
+html {
+  background: #f1f1f1
+}
+
+body, button {
+  font-family: 'roboto', sans-serif !important
+}
+
+h1,h2,h3,h4,h5,h6 {
+  margin: 0;
+}
+
+/* APP */
+
+.appBackground {
+  width: 100vw;
+  min-height: 92vh;
+  margin-top: 8vh;
+  display: flex;
+}
+
+/* Header */
+
+.navbarContain {
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 8vh;
+  box-shadow: 2px 0 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #B22E30
+}
+
+.menuListDesktop {
+  height: 9vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.menuListDesktop a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 5vw;
+  color: white
+}
+
+.menuIcon, .exitMenuIcon {
+  width: 4vh;
+  height: 4vh;
+  padding: 1vh;
+  margin-right: 2vw;
+  z-index: 100
+}
+
+.exitMenuIcon {
+  margin: 1.5vh 2vw;
+}
+
+/* Drawer Contain */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background-color: #00000088
+}
+
+.drawerContain {
+  top: 0;
+  right: 0;
+  width: 60vw;
+  height: 100%;
+  position: fixed;
+  overflow-y: hidden;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: white;
+  box-shadow: -3px 0 10px #00000099;
+}
+
+.menuListMobile {
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.menuListMobile a {
+  text-decoration: none;
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10vw 0 0;
+  margin: 1vh 0
+}
+
+.menuListMobile a:hover, .menuListMobile a:focus {
+  animation: sideDrawerOpacityStart 0.45s cubic-bezier(.21,.07,.3,.97);
+  background-color: #22222222;
+}
+
+.menuListDesktop a {
+  text-decoration: none;
+}
+
+.menuListDesktop a:hover, .menuListDesktop a:focus {
+  animation: navbarOpacityStart 0.45s cubic-bezier(.21,.07,.3,.97);
+  background-color: #22222222;
+}
+
+/* Movie View List */
+
+.movieListsContain {
+}
+
+.moviesContain {
+  width: 100vw;
+  margin-bottom: 5vw;
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listTitle {
+  margin-bottom: .75em;
+}
+
+.movieCards {
+  width: 100vw;
+  margin-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+/* Marquee */
+
+.marqueeBackground {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vw
+}
+
+.marqueeContain {
+  background: radial-gradient(#D0D288cc, #F4FDE633);
+  width: 80vw;
+  margin: 5vw 0;
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr repeat(3, auto) 1fr;
+  box-shadow: 0 0 0 .5vw black,
+              0 0 0 4.5vw orange,
+              0 0 0 5vw black
+}
+
+.marqueeBorder {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  border: 5vw solid;
+  animation: Lights .7s infinite cubic-bezier(.74,.21,.73,.85);
+  animation-direction: alternate;
+}
+
+.marqueeLinkOverlay {
+  font-size: 0;
+  grid-row: 1 / -1;
+  grid-column: 1;
+  z-index: 4;
+}
+
+.marqueeLine {
+  height: 2em;
+  border-bottom: 1px #00000022 solid;
+  grid-column: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.ml1 {
+  border-top: 1px #00000022 solid;
+  grid-row: 2
+}
+
+.ml2 {
+  grid-row: 3
+}
+
+.ml3 {
+  grid-row: 4
+}
+
+.mlEnd {
+  grid-column: 1;
+  height: 1em;
+  padding: 0 5px;
+  display: flex;
+  opacity: 35%;
+  align-items: center;
+}
+
+.userRequest {
+  grid-row: 1;
+}
+
+.trailerLink {
+  grid-row: 5;
+  justify-content: flex-end;
+}
+
+.nowPlaying {
+  font-family: 'Limelight', cursive !important;
+  align-self: center;
+  color: red;
+  text-align: center;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.marqueeFilmTitle {
+  font-family: 'Limelight', cursive !important;
+  text-align: center;
+  align-self: center;
+  grid-column: 1;
+  grid-row: 3 / 5
+}
+
+.marqueeDetailsContain {
+  width: 90vw;
+  margin-top: 5vw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 5vw;
+  grid-template-rows: auto;
+  grid-row-gap: 5vw;
+  animation: marqueeOpacity 1.6s cubic-bezier(.21,.07,.3,.97);
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marqueeLabel, .emptyDetail  {
+  opacity: 25%
+}
+
+.archiveButton {
+  grid-column: 1 / 3
+}
+
+/* queue Cards */
+
+.movieCard {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto;
+  margin-bottom: 1em;
+}
+
+.movieObjectContain {
+  width: 75vw;
+  padding: .5em;
+}
+
+.movieObjectContain > * {
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-family: 'roboto' !important;
+}
+
+.queueCardNumber {
+  font-family: 'roboto' !important;
+  margin: 0
+}
+
+.queueCardTitle {
+  font-weight: 700;
+}
+
+.queueCardLink {
+  color: red;
+  font-family: 'roboto' !important;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.queueCardUser {
+  margin-top: 8px;
+}
+
+.queueButtonContain {
+  margin-top: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.queueRemoveButton, .queueMarqueeButton {
+  color: white;
+  width: 25vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'roboto' !important;
+}
+
+.togglePostButton {
+  width: 90vw;
+}
+
+/* Post Movie Modal */
+
+.postMovieBackground {
+  top: 0;
+  position: absolute;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: none;
+}
+
+.postMovieModal {
+  width: 90vw;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 12px #41414141;
+  padding: 2vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 6;
+  animation: slideUpStart 0.45s cubic-bezier(.21,.07,.3,.97);
+}
+
+.movieForm {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.postMovieInput {
+  margin: 1vh 0 !important
+}
+
+.postButton {
+  background-color: #B22E30;
+  margin: 1vh 0 0 0 !important
+}
+
+.movieQueueCardsContain {
+  width: 100vw;
+  background-color: black
+}
+
+@keyframes Lights {
+    from {
+        border-image: url('./assets/LightsA.svg') 20% round;
+        border-image-outset: .88em;
+    }
+    to {
+        border-image: url('./assets/LightsB.svg') 20% round;
+        border-image-outset: .88em;
+    }
+}
+
+@keyframes marqueeTransionStart {
+    0% {
+        transform: translateX(120%);
+    }
+    25% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes marqueeTransionEnd {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(120%);
+    }
+    100% {
+        transform: translateX(120%);
+    }
+}
+
+@keyframes slideLeftStart {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeftEnd {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+@keyframes slideUpStart {
+    0% {
+        transform: translateY(200%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUpEnd {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(200%);
+    }
+}
+
+@keyframes marqueeOpacity {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes backdropOpacityStart {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes backdropOpacityEnd {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes sideDrawerOpacityStart {
+    0% {
+        background-color: #ffffff;
+    }
+    100% {
+        background-color: #22222222;
+    }
+}
+
+@keyframes navbarOpacityStart {
+    0% {
+        background-color: #B22E30;
+    }
+    100% {
+        background-color: #22222222;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+  .menuIcon, .exitMenuIcon {
+    display: none
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .menuListDesktop {
+    display: none
+  }
+}
