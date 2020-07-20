@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import { addToQueue } from '../redux/actions/movieController.js';
+import { setMarqueeModal } from '../redux/actions/postMovieModalController.js';
 import { modalInteraction } from '../redux/actions/postMovieModalController.js';
 
 
@@ -51,13 +52,14 @@ class PostMovie extends Component {
       runtime: '',
       user: ''
     });
+    this.props.setMarqueeModal(true)
     this.toggleRender();
     this.setState({submitTriggered: false});
 
   }
 
   toggleRender() {
-    if (this.props.isPostMovieModalOpen) {
+    if (this.props.isModalOpen) {
       this.setState({shouldRender: false})
     };
   }
@@ -148,13 +150,14 @@ class PostMovie extends Component {
 
 function mapStateToProps(state) {
   return {
-    isPostMovieModalOpen: state.postMovieModalReducer.isPostMovieModalOpen
+    isModalOpen: state.postMovieModalReducer.isModalOpen
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     addToQueue: movie => dispatch(addToQueue(movie)),
+    setMarqueeModal: index => dispatch(setMarqueeModal(index)),
     modalInteraction: modalState => dispatch(modalInteraction(modalState))
   };
 }

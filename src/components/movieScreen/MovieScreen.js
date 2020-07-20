@@ -14,6 +14,7 @@ class MovieScreen extends React.Component {
   render() {
     return (
       <div className="movieListsContain">
+      {console.log(this.props.test)}
         <Marquee />
         <MovieQueue />
         <ArchiveList />
@@ -24,6 +25,8 @@ class MovieScreen extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    isModalOpen: state.postMovieModalReducer.isModalOpen,
+    test: state.postMovieModalReducer.test,
   };
 }
 

@@ -4,7 +4,7 @@ import { Card } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { removeFromQueue, addToMarquee } from '../redux/actions/movieController.js'
-import { modalInteraction } from '../redux/actions/postMovieModalController.js';
+import { modalInteraction, setMarqueeModal } from '../redux/actions/postMovieModalController.js'
 import PostMovie from './PostMovie.js'
 
 class MovieQueue extends Component {
@@ -16,6 +16,7 @@ class MovieQueue extends Component {
   }
 
   setMarqueeStates(i) {
+    this.props.setMarqueeModal(true);
     this.props.addToMarquee(i)
   }
 
@@ -58,7 +59,7 @@ class MovieQueue extends Component {
           />
         </div>
           {
-            this.props.isPostMovieModalOpen
+            this.props.isModalOpen
             ?
             <PostMovie />
             :
@@ -74,7 +75,7 @@ function mapStateToProps(state) {
   return {
     queue: state.movieReducer.queue,
     marqueeFilm: state.movieReducer.marqueeFilm,
-    isPostMovieModalOpen: state.postMovieModalReducer.isPostMovieModalOpen,
+    isModalOpen: state.postMovieModalReducer.isModalOpen,
     test: state.postMovieModalReducer.test
   };
 }
@@ -83,6 +84,7 @@ function mapDispatchToProps(dispatch) {
   return {
     removeFromQueue: index => dispatch(removeFromQueue(index)),
     addToMarquee: index => dispatch(addToMarquee(index)),
+    setMarqueeModal: index => dispatch(setMarqueeModal(index)),
     modalInteraction: modalState => dispatch(modalInteraction(modalState))
   };
 }

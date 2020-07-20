@@ -1,9 +1,12 @@
-export const modalInteraction = (bool) => ({
-  type: "modalInteraction",
-  payload: bool
-})
-
-export const setMarqueeModal = (bool) => ({
-  type: "setMarqueeModal",
-  payload: bool
-})
+export function setMarqueeModal(data) {
+  return {
+    type: "setMarqueeModal",
+    payload: data
+  };
+}
+export function modalInteraction(data) {
+  return {
+    type: "modalInteraction",
+    payload: data
+  };
+}

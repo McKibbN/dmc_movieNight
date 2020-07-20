@@ -1,7 +1,7 @@
 const initialState = {
-  queue: [],
+  queue: [{title: 'Plug Love', link: 'https://www.youtube.com/watch?v=cl4J7MUmzv4&t=25s', genre: 'Drama / Crime', runtime:'2h 23m', user:'aja'}],
   archive: [],
-  marqueeFilm: [{title: 'Plug Love', link: 'https://www.youtube.com/watch?v=cl4J7MUmzv4&t=25s', genre: 'Drama / Crime', runtime:'2h 23m', user:'aja'}]
+  marqueeFilm: []
 }
 export default function(state = initialState, action) {
   switch (action.type) {

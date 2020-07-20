@@ -12,17 +12,22 @@ class Marquee extends Component {
       shouldRender: true
     }
     this.documentMarqueeBounding = this.documentMarqueeBounding.bind(this)
-    this.toggleRender = this.toggleRender.bind(this)
   }
 
   componentDidMount() {
     window.addEventListener("resize", this.documentMarqueeBounding);
     this.documentMarqueeBounding();
-    this.toggleRender()
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.documentMarqueeBounding);
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log("getDerivedStateFromProps");
+    return {
+      shouldRender: props.test
+    };
   }
 
   documentMarqueeBounding() {
@@ -40,12 +45,6 @@ class Marquee extends Component {
     }, 4000);
   }
 
-  toggleRender() {
-    if (this.props.test) {
-      this.setState({shouldRender: true});
-    }
-  }
-
   _renderMovie(){
 		return Object.entries(this.props.marqueeFilm).map(([key, movie], i) => {
 			return (
@@ -55,7 +54,6 @@ class Marquee extends Component {
           style={{ animation: `${this.state.shouldRender ? "marqueeTransionStart" : "marqueeTransionEnd"} 4s cubic-bezier(.25,-0.41,.35,.88)` }}
           onAnimationEnd={this.state.shouldRender ? null : () => this.toggleRender()}
         >
-          {console.log(this.props.test)}
           <div className="marqueeContain">
             <a className="marqueeLinkOverlay" href={movie.link}>:D</a>
             <div className="marqueeBorder"/>
@@ -101,7 +99,7 @@ function mapStateToProps(state) {
   return {
     marqueeFilm: state.movieReducer.marqueeFilm,
     test: state.postMovieModalReducer.test,
-    isPostMovieModalOpen: state.postMovieModalReducer.isPostMovieModalOpen,
+    isModalOpen: state.postMovieModalReducer.isModalOpen,
     isDrawerOpen: state.drawerReducer.isDrawerOpen
   };
 }
