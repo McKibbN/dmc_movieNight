@@ -13,6 +13,7 @@ h1,h2,h3,h4,h5,h6 {
 /* APP */
 
 .appBackground {
+  background-color: #f1f1f1;
   width: 100vw;
   min-height: 92vh;
   margin-top: 8vh;
@@ -36,7 +37,6 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .menuListDesktop {
-  height: 9vh;
   display: flex;
   flex-direction: row;
   align-items: center
@@ -70,7 +70,7 @@ h1,h2,h3,h4,h5,h6 {
   top: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 5;
+  z-index: 10;
   background-color: #00000088
 }
 
@@ -81,7 +81,7 @@ h1,h2,h3,h4,h5,h6 {
   height: 100%;
   position: fixed;
   overflow-y: hidden;
-  z-index: 6;
+  z-index: 11;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -121,13 +121,9 @@ h1,h2,h3,h4,h5,h6 {
 
 /* Movie View List */
 
-.movieListsContain {
-}
-
 .moviesContain {
   width: 100vw;
-  margin-bottom: 5vw;
-  background-color: #f1f1f1;
+  padding-top: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -139,7 +135,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .movieCards {
   width: 100vw;
-  margin-top: 5vw;
+  padding-top: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center
@@ -151,7 +147,8 @@ h1,h2,h3,h4,h5,h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5vw
+  padding-top: 5vw;
+  margin: 0 5vw;
 }
 
 .marqueeContain {
@@ -329,7 +326,7 @@ h1,h2,h3,h4,h5,h6 {
 .postMovieBackground {
   top: 0;
   position: absolute;
-  z-index: 5;
+  z-index: 11;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -347,7 +344,7 @@ h1,h2,h3,h4,h5,h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 6;
+  z-index: 11;
   animation: slideUpStart 0.45s cubic-bezier(.21,.07,.3,.97);
 }
 
@@ -412,6 +409,15 @@ h1,h2,h3,h4,h5,h6 {
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+@keyframes slideUpMarquee {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-150%);
     }
 }
 

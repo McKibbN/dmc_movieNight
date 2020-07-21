@@ -19,12 +19,15 @@ class Marquee extends Component {
     this.documentMarqueeBounding();
   }
 
+  componentDidUpdate() {
+    this.documentMarqueeBounding();
+  }
+
   componentWillUnmount() {
     window.removeEventListener("scroll", this.documentMarqueeBounding);
   }
 
   static getDerivedStateFromProps(props, state) {
-    console.log("getDerivedStateFromProps");
     return {
       shouldRender: props.test
     };
@@ -42,7 +45,7 @@ class Marquee extends Component {
     this.props.setMarqueeModal(false)
     setTimeout(() => {
       this.props.addToArchive(i)
-    }, 4000);
+    }, 1200);
   }
 
   _renderMovie(){
@@ -51,8 +54,7 @@ class Marquee extends Component {
         <div
           className="marqueeBackground"
           key={i}
-          style={{ animation: `${this.state.shouldRender ? "marqueeTransionStart" : "marqueeTransionEnd"} 4s cubic-bezier(.25,-0.41,.35,.88)` }}
-          onAnimationEnd={this.state.shouldRender ? null : () => this.toggleRender()}
+          style={{ animation: `${this.state.shouldRender ? "marqueeTransionStart 4s cubic-bezier(.25,-0.41,.35,.88)" : "slideUpMarquee 1.2s cubic-bezier(.21,.07,.3,.97)"} ` }}
         >
           <div className="marqueeContain">
             <a className="marqueeLinkOverlay" href={movie.link}>:D</a>
@@ -87,7 +89,7 @@ class Marquee extends Component {
 
   render() {
     return (
-      <div id='marquee' className="moviesContain">
+      <div id='marquee'>
         {this._renderMovie()}
       </div>
     );

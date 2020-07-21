@@ -5,7 +5,6 @@ import { Button } from '@material-ui/core';
 import { connect } from 'react-redux';
 import { removeFromQueue, addToMarquee } from '../redux/actions/movieController.js'
 import { modalInteraction, setMarqueeModal } from '../redux/actions/postMovieModalController.js'
-import PostMovie from './PostMovie.js'
 
 class MovieQueue extends Component {
   constructor (props) {
@@ -13,6 +12,14 @@ class MovieQueue extends Component {
     this.state = {}
     this.togglePost = this.togglePost.bind(this);
     this.setMarqueeStates = this.setMarqueeStates.bind(this);
+  }
+
+  documentMarqueeBounding() {
+    let el = document.getElementById('marquee');
+    let elBounding = el.getBoundingClientRect();
+    let height = elBounding.height;
+
+    this.props.getMarqueeHeight(height)
   }
 
   setMarqueeStates(i) {
@@ -58,13 +65,6 @@ class MovieQueue extends Component {
             renderWhenEmpty={() => <h5>Please Add to Queue</h5>}
           />
         </div>
-          {
-            this.props.isModalOpen
-            ?
-            <PostMovie />
-            :
-            null
-          }
       </div>
     );
    }
